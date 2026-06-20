@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Semantic vs Keyword Search</title>
+<style>
+  :root{--sem:#5b3fa8;--kw:#8a8378;--bg:#f5f3fa;--ink:#241f33}
+  *{box-sizing:border-box}
+  body{font:15px/1.5 'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);max-width:900px;margin:0 auto;padding:30px 20px}
+  h1{font-size:1.5rem}
+  .bar{display:flex;gap:10px}
+  input{flex:1;padding:12px;border:1px solid #cfc7e6;border-radius:8px;font:inherit}
+  button{background:var(--sem);color:#fff;border:0;border-radius:8px;padding:0 22px;cursor:pointer}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  @media(max-width:700px){.cols{grid-template-columns:1fr}}
+  .col h2{font-size:1rem;text-transform:uppercase;letter-spacing:1px}
+  .sem h2{color:var(--sem)}.kw h2{color:var(--kw)}
+  .hit{background:#fff;border-radius:8px;padding:12px;margin:8px 0;border-left:4px solid var(--sem)}
+  .kw .hit{border-left-color:var(--kw)}
+  .hit b{display:block}.hit small{color:#766}
+  .empty{color:#998;font-style:italic}
+</style>
+</head>
+<body>
+<h1>🔍 Semantic vs Keyword Search</h1>
+<p>Try: <em>space adventure with feelings</em>, <em>food and passion</em>, <em>stories about losing someone</em></p>
+<div class="bar">
+  <input id="q" placeholder="Describe what you want to watch…" onkeydown="if(event.key==='Enter')go()">
+  <button onclick="go()">Search</button>
+</div>
+<div class="cols">
+  <div class="col sem"><h2>Semantic (embeddings)</h2><div id="sem"></div></div>
+  <div class="col kw"><h2>Keyword (exact words)</h2><div id="kw"></div></div>
+</div>
+<script>
+function render(el,hits){
+  el.innerHTML=hits.length?hits.map(h=>`<div class="hit"><b>${h.title}</b><small>score ${h.score}</small>${h.desc}</div>`).join('')
+    :'<p class="empty">No matches — exact words not found.</p>';
+}
+async function go(){
+  const q=document.getElementById('q').value.trim();if(!q)return;
+  const r=await fetch('/api/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q})});
+  const d=await r.json();
+  render(document.getElementById('sem'),d.semantic);
+  render(document.getElementById('kw'),d.keyword);
+}
+</script>
+</body>
+</html>
