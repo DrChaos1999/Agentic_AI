@@ -1,0 +1,15 @@
+# secrets & local data
+.env
+backend/chroma_db/
+backend/.venv/
+
+# python
+__pycache__/
+*.pyc
+
+# node
+node_modules/
+frontend/dist/
+
+# os
+.DS_Store

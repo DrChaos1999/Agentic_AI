@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+openai>=1.40
+chromadb
+feedparser
+httpx
+ddgs
+pydantic
+python-dotenv
+python-multipart
