@@ -1,0 +1,22 @@
+[
+  {
+    "message": "ভাই blue color এর XL shirt দুইটা কালকে আগের address এ পাঠাবেন",
+    "expected": {"product": "shirt", "quantity": 2, "size": "XL", "color": "blue"}
+  },
+  {
+    "message": "কালো t-shirt 3টা আগের ঠিকানায় পাঠান",
+    "expected": {"product": "t-shirt", "quantity": 3, "color": "black"}
+  },
+  {
+    "message": "একটা লাল পাঞ্জাবি previous address",
+    "expected": {"product": "panjabi", "quantity": 1, "color": "red"}
+  },
+  {
+    "message": "2 pcs blue shoes address: Dhanmondi 27, Dhaka",
+    "expected": {"product": "shoes", "quantity": 2, "color": "blue"}
+  },
+  {
+    "message": "সাদা শাড়ি দুইটা ঠিকানা: মিরপুর ১০",
+    "expected": {"product": "saree", "quantity": 2, "color": "white"}
+  }
+]

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bangla-order-agent"
+version = "1.0.0"
+description = "Convert informal Bangla and Banglish messages into validated online orders."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Dibya Joy Paul"}]
+dependencies = [
+  "fastapi>=0.115,<1.0",
+  "uvicorn[standard]>=0.34,<1.0",
+  "pydantic>=2.10,<3.0",
+  "pydantic-settings>=2.7,<3.0",
+  "SQLAlchemy>=2.0,<3.0",
+  "streamlit>=1.48,<2.0",
+  "pandas>=2.2,<4.0",
+  "requests>=2.32,<3.0",
+  "openai>=1.68,<3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9.0", "pytest-cov>=6.0,<8.0", "httpx>=0.28,<1.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["app/parsers/openai_parser.py"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
