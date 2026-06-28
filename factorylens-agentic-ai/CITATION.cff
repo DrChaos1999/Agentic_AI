@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: FactoryLens AI
+authors:
+  - family-names: Paul
+    given-names: Dibya Joy
+version: 1.0.0
+date-released: 2026-06-25
+license: MIT
+message: "If you use the Magnetic Tile dataset, also cite its original authors as documented in data/source_manifest.json."

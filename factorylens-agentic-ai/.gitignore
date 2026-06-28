@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Secrets and local databases
+.env
+*.db
+
+# Generated data and artifacts
+data/raw/
+data/processed/
+data/uploads/
+data/reports/
+artifacts/
+models/*.pt
+mlruns/
+mlflow_data/
+
+# Keep documentation and smoke-test data
+!data/demo/
+!data/manual/
+!data/source_manifest.json

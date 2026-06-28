@@ -1,0 +1,1 @@
+"""FactoryLens AI application package."""

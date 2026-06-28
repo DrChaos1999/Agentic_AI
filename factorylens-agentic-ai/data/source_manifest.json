@@ -1,0 +1,24 @@
+{
+  "dataset": "Magnetic Tile Surface Defect Dataset",
+  "official_author_repository": "https://github.com/abin24/Magnetic-tile-defect-datasets.",
+  "archive_url": "https://github.com/abin24/Magnetic-tile-defect-datasets./archive/refs/heads/master.zip",
+  "paper": "Saliency defect detection of magnetic tiles",
+  "classes": {
+    "MT_Blowhole": 115,
+    "MT_Break": 85,
+    "MT_Crack": 57,
+    "MT_Fray": 32,
+    "MT_Free": 952,
+    "MT_Uneven": 103
+  },
+  "expected_total_images": 1344,
+  "expected_defective_image_mask_pairs": 392,
+  "usage_note": "The author repository welcomes use and requests citation but does not expose a standard license file. This project downloads from the original repository and does not redistribute the source images.",
+  "validation": [
+    "expected per-class counts",
+    "Pillow image readability",
+    "SHA-256 manifest",
+    "mask existence for defective samples",
+    "duplicate-file report"
+  ]
+}
